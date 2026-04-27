@@ -6,7 +6,12 @@ __pycache__/
 *.pyc
 *.pyo
 
-# Models & indexes (large files)
+# Models & indexes (large files — download separately, do not commit)
+*.onnx
+*.bin
+*.pkl
+*.pt
+*.pth
 .txtai/
 .chroma_db/
 .mem0_history.db
