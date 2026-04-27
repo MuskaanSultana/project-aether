@@ -59,7 +59,7 @@ def _build_mem0() -> object:
 def cmd_add(text: str):
     """Manually add a memory — use this to seed important facts about yourself."""
     m = _build_mem0()
-    result = m.add(text, user_id=USER_ID)
+    result = m.add(text, filters={"user_id": USER_ID})
     memories = result.get("results", []) if isinstance(result, dict) else result
     if memories:
         print(f"[Memory] Stored {len(memories)} fact(s):")
@@ -72,7 +72,7 @@ def cmd_add(text: str):
 def cmd_search(query: str):
     """Search your memories for anything related to a topic."""
     m = _build_mem0()
-    results = m.search(query, user_id=USER_ID, limit=10)
+    results = m.search(query, filters={"user_id": USER_ID}, limit=10)
     if not results:
         print(f"[Memory] Nothing found for: '{query}'")
         return

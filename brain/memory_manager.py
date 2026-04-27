@@ -83,7 +83,7 @@ class MemoryManager:
                     {"role": "user",      "content": user_input},
                     {"role": "assistant", "content": response},
                 ],
-                user_id=user_id,
+                filters={"user_id": user_id},
             )
         try:
             await asyncio.to_thread(_add)
@@ -99,7 +99,7 @@ class MemoryManager:
             m = self._get_mem0()
             if m is None:
                 return []
-            return m.search(query, user_id=user_id, limit=5)
+            return m.search(query, filters={"user_id": user_id}, limit=5)
 
         try:
             results = await asyncio.to_thread(_search)
