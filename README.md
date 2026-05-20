@@ -2,7 +2,7 @@
 
 > [!NOTE]
 > **Project Status: ⚠️ Work in Progress**
-> Project Aether is an actively developing private AI voice assistant and digital twin built exclusively for Adithya Thaninki (Adi). It is designed to run locally, automate operating system actions, learn from demonstrations, and manage user preferences and memories recursively.
+> Project Aether is an actively developing private AI voice assistant and digital twin built exactly Like JARVIS . It is designed to run locally, automate operating system actions, learn from demonstrations, and manage user preferences and memories recursively.
 
 ---
 
