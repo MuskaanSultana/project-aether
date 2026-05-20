@@ -2,7 +2,6 @@ import os
 import numpy as np
 import sounddevice as sd
 import logging
-from faster_whisper import WhisperModel
 
 logging.getLogger("faster_whisper").setLevel(logging.ERROR)
 
@@ -16,6 +15,7 @@ class AetherSTT:
         # model can download on first run, then restore it.
         _prev = os.environ.pop("HF_HUB_OFFLINE", None)
         try:
+            from faster_whisper import WhisperModel
             self.model = WhisperModel(MODEL_SIZE, device="cpu", compute_type="int8")
         finally:
             if _prev is not None:

@@ -83,7 +83,7 @@ class MemoryManager:
                     {"role": "user",      "content": user_input},
                     {"role": "assistant", "content": response},
                 ],
-                filters={"user_id": user_id},
+                user_id=user_id,
             )
         try:
             await asyncio.to_thread(_add)
@@ -99,13 +99,13 @@ class MemoryManager:
             m = self._get_mem0()
             if m is None:
                 return []
-            return m.search(query, filters={"user_id": user_id}, limit=5)
+            return m.search(query, user_id=user_id, limit=5)
 
         try:
             results = await asyncio.to_thread(_search)
             if not results:
                 return ""
-            return "\n".join(f"- {r['memory']}" for r in results)
+            return "\n".join(f"- {r.get('memory', r)}" if isinstance(r, dict) else f"- {r}" for r in results)
         except Exception as e:
             print(f"[Memory/Search] {e}")
             return ""
@@ -114,7 +114,7 @@ class MemoryManager:
         """Returns all stored memories for the user (for debugging / Obsidian export)."""
         def _get_all():
             m = self._get_mem0()
-            return m.get_all(filters={"user_id": user_id}) if m else []
+            return m.get_all(user_id=user_id) if m else []
         try:
             return await asyncio.to_thread(_get_all)
         except Exception:

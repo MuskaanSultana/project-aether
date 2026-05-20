@@ -17,6 +17,7 @@ from dotenv import load_dotenv
 
 load_dotenv()   # reads .env before anything else
 
+os.environ["PYTHONWARNINGS"] = "ignore"
 warnings.filterwarnings("ignore")
 logging.getLogger("huggingface_hub").setLevel(logging.ERROR)
 
