@@ -157,8 +157,3 @@ If you want to contribute, please:
 Distributed under the MIT License. See `LICENSE` for more information.
 
 ---
-
-## 📬 Contact
-**Adithya Thaninki (Adi)**
-* **GitHub**: [@kartik-mem0](https://github.com/kartik-mem0)
-* **Status**: Junior Developer at Carleton University
